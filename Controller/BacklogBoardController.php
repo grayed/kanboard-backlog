@@ -21,6 +21,7 @@ class BacklogBoardController extends BaseController {
  * sets the board by creating swimlane and column
  */
     public function backlogSet() {
+        $this->checkCSRFParam();
         $projectId = $this->request->getIntegerParam('project_id');
 
         $this->projectUsesBacklogBoardModel->setBacklogBoard($projectId);
@@ -37,6 +38,7 @@ class BacklogBoardController extends BaseController {
  */
     
     public function backlogUnset() {
+        $this->checkCSRFParam();
         $projectId = $this->request->getIntegerParam('project_id');
 
         $this->projectUsesBacklogBoardModel->unsetBacklogBoard($projectId);
